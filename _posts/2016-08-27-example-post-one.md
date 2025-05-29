@@ -4,64 +4,68 @@ categories:
 - C
 feature_image: "https://picsum.photos/2560/600?image=872"
 ---
+# typedef struct vs struct in C
 
-Typedef Struct vs Struct
-좋아, 이건 C 구조체 문법에서 아주 중요한 개념이야.
-typedef struct랑 struct의 차이를 아래처럼 정리할 수 있어:
-✅ 차이 요약
-문법
-사용법
-구조체 이름 붙이는 방식
-struct Entry {…};
-사용할 때 → struct Entry e;
-항상 struct 키워드 붙여야
-typedef struct {…} Entry;
-사용할 때 → Entry e;
-struct 키워드 안 써도 됨
-typedef struct Entry {…} Entry;
-사용할 때 → Entry e;
-struct 이름 + 별칭 둘 다 존재
-🔍 예제 1:
-struct Entry
+C에서 구조체를 정의하고 사용할 때 `typedef struct`와 `struct`는 다음과 같은 차이가 있습니다.
+
+---
+
+## ✅ 차이 요약
+
+| 항목 | struct Entry | typedef struct { ... } Entry | typedef struct Entry { ... } Entry |
+|------|---------------|-------------------------------|------------------------------------|
+| 선언 방식 | `struct Entry e;` | `Entry e;` | `Entry e;` 또는 `struct Entry e;` |
+| struct 키워드 필요 | 항상 필요 | 불필요 | 선택 가능 |
+| 이름 정의 | 구조체 태그만 정의 | 별칭만 정의 | 구조체 태그 + 별칭 모두 정의 |
+
+---
+
+## 🔍 예제들
+
+### struct Entry
+```c
 struct Entry {
     int key;
     int value;
 };
+
 void foo() {
-    struct Entry e;  // 반드시 struct 붙여야 함
+    struct Entry e;  // 반드시 struct 키워드 필요
 }
-🔍 예제 2:
-typedef struct {…} Entry
+```
+
+### typedef struct { ... } Entry
+```c
 typedef struct {
     int key;
     int value;
 } Entry;
+
 void foo() {
-    Entry e;  // struct 안 붙여도 됨!
+    Entry e;  // struct 키워드 없이 바로 사용 가능
 }
-🔍 예제 3:
-typedef struct Entry {…} Entry
+```
+
+### typedef struct Entry { ... } Entry
+```c
 typedef struct Entry {
     int key;
     int value;
 } Entry;
+
 void foo() {
-    Entry e;              // ✅ 편하게 사용
-    struct Entry s;       // ✅ 여전히 struct Entry도 쓸 수 있음
+    Entry e;        // typedef 별칭으로 사용
+    struct Entry s; // struct 키워드로도 사용 가능
 }
-이건 이름을 두 개 만들어주는 거야:
-struct Entry (구조체 태그)
-Entry (typedef 별칭)
+```
 
-✅ 결론
-struct Entry는 항상 struct 키워드를 붙여야 함 (좀 귀찮음)
-typedef struct {…} Entry; 쓰면 더 간결하게 Entry만 쓰면 돼서 보통 이 방식 선호
-구조체가 많아지는 실전에서는 typedef 방식이 훨씬 깔끔하고 편해
+---
 
-필요하면 C 스타일 프로젝트에서 어떤 방식이 더 권장되는지도 정리해줄 수 있어.
+## ✅ 결론
 
-<!-- more -->
+- `struct Entry`는 매번 `struct`를 붙여야 해서 **불편**합니다.
+- `typedef struct { ... } Entry;`는 `Entry`만으로 간단하게 사용할 수 있어 **실전에서 선호**됩니다.
+- `typedef struct Entry { ... } Entry;`는 태그와 별칭을 **둘 다 사용**하고 싶을 때 유용합니다.
+- 규모가 큰 프로젝트나 협업에서는 **typedef 방식이 일반적으로 더 깔끔하고 가독성도 좋습니다**.
 
-Retorts have the "cap" and the "cucurbit" made into one. The anbik is also called the raʾs (head) of the cucurbit. The liquid in the cucurbit is heated or boiled; the vapour rises into the anbik, where it cools by contact with the walls and condenses, running down the spout into the receiver. A modern descendant of the alembic is the pot still, used to produce distilled beverages.
 
-_Originally from [Alembic - Wikipedia](https://en.wikipedia.org/wiki/Alembic)_
