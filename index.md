@@ -1,5 +1,5 @@
 ---
-title: About Me
+title: 
 feature_text: |
   ## Jungwoo Moon
   Computer Engineer & Embedded Software Developer
