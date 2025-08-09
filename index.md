@@ -1,8 +1,7 @@
 ---
-title: 
+title: Jungwoo Moon
 feature_text: |
-  ## Jungwoo Moon
-  Computer Engineer & Embedded Software Developer
+
 feature_image: "/assets/GT.jpeg"
 excerpt: "Hi, I am an embedded/firmware engineer."
 ---
