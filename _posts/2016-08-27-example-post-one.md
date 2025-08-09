@@ -1,71 +1,82 @@
 ---
-title: Typedef struct diffrerence
-categories:
-- C
+title: Smart Autonomous Trash Can Robot
 feature_image: "https://picsum.photos/2560/600?image=872"
 ---
-# typedef struct vs struct in C
 
-C에서 구조체를 정의하고 사용할 때 `typedef struct`와 `struct`는 다음과 같은 차이가 있습니다.
+## Smart Autonomous Trash Can Robot
 
----
+An embedded systems project featuring autonomous line-following navigation, real-time trash level monitoring, and a touchless, automated lid.
 
-## ✅ 차이 요약
+**[Live Demo]** **[Source Code on GitHub]**
 
-| 항목 | struct Entry | typedef struct { ... } Entry | typedef struct Entry { ... } Entry |
-|------|---------------|-------------------------------|------------------------------------|
-| 선언 방식 | `struct Entry e;` | `Entry e;` | `Entry e;` 또는 `struct Entry e;` |
-| struct 키워드 필요 | 항상 필요 | 불필요 | 선택 가능 |
-| 이름 정의 | 구조체 태그만 정의 | 별칭만 정의 | 구조체 태그 + 별칭 모두 정의 |
+### Project Overview
 
----
+This project is a smart, autonomous trash can robot designed to navigate predefined paths in an indoor environment. It automates trash collection by following a designated line, monitoring its internal capacity in real-time, and providing a hygienic, touchless lid mechanism. The entire system is managed by a Real-Time Operating System (RTOS) to ensure smooth and concurrent operation of all subsystems.
 
-## 🔍 예제들
+> **[Recommendation]**
+> Insert a short video (30-60 seconds) here demonstrating the robot in action. Show it following the line, the lid opening for a user, and a close-up of the LCD screen displaying the fill level. This is the most effective way to showcase the final product.
 
-### struct Entry
-```c
-struct Entry {
-    int key;
-    int value;
-};
+### Key Features
 
-void foo() {
-    struct Entry e;  // 반드시 struct 키워드 필요
-}
-```
+* **Autonomous Line-Following Navigation**
+    * Utilizes an array of analog line sensors to detect a marked path on the floor.
+    * A motor controller interprets sensor data to dynamically adjust the speed and direction of three independent motors, ensuring the robot remains on its designated route without manual intervention.
 
-### typedef struct { ... } Entry
-```c
-typedef struct {
-    int key;
-    int value;
-} Entry;
+* **Real-Time Trash Level Monitoring**
+    * An upward-facing ultrasonic sensor, combined with a timer, precisely calculates the remaining capacity in the bin.
+    * The fill-level percentage is displayed in real-time on an LCD screen, providing clear visual feedback and alerting users when the bin needs emptying.
 
-void foo() {
-    Entry e;  // struct 키워드 없이 바로 사용 가능
-}
-```
+* **Automated Touchless Lid**
+    * A forward-facing ultrasonic sensor detects user motion near the top of the bin.
+    * A servo motor is triggered upon motion detection to automatically open and close the lid, offering a convenient and hygienic hands-free experience.
 
-### typedef struct Entry { ... } Entry
-```c
-typedef struct Entry {
-    int key;
-    int value;
-} Entry;
+> **[Recommendation]**
+> Include a high-quality photo gallery here. Show close-ups of the key components: the line sensor array on the bottom, the ultrasonic sensors, the servo-lid mechanism, the motor/wheel assembly, and the main controller board.
 
-void foo() {
-    Entry e;        // typedef 별칭으로 사용
-    struct Entry s; // struct 키워드로도 사용 가능
-}
-```
+### System Architecture & Concurrency
 
----
+The system's stability and responsiveness are managed by a **Real-Time Operating System (RTOS)**. This allows for robust multitasking by dedicating separate threads for critical processes, including:
+* Motor control and navigation adjustments.
+* Sensor data polling and LCD screen updates.
+* Lid mechanism operation.
 
-## ✅ 결론
+To prevent race conditions and ensure safe operation, a **mutex** was implemented. For example, the mutex ensures that the robot's motors are safely halted before the lid-opening sequence is initiated, preventing conflicts between the navigation and user-interaction threads.
 
-- `struct Entry`는 매번 `struct`를 붙여야 해서 **불편**합니다.
-- `typedef struct { ... } Entry;`는 `Entry`만으로 간단하게 사용할 수 있어 **실전에서 선호**됩니다.
-- `typedef struct Entry { ... } Entry;`는 태그와 별칭을 **둘 다 사용**하고 싶을 때 유용합니다.
-- 규모가 큰 프로젝트나 협업에서는 **typedef 방식이 일반적으로 더 깔끔하고 가독성도 좋습니다**.
+> **[Recommendation]**
+> This is an ideal place for a system architecture or block diagram. A visual representation of how the microcontroller, sensors, motors, and RTOS threads interact would be very powerful for a technical audience.
 
+### Challenges & Solutions
 
+Throughout the development process, we addressed several key engineering challenges:
+
+1.  **Challenge: Control Algorithm Selection**
+    * We initially considered a fully analog PID controller for its potential robustness. However, its implementation complexity, tuning time, and high sensitivity to environmental factors (like the low contrast between the line and floor in our lab) made it impractical for our timeline.
+    * **Solution:** We implemented a more discrete, simpler control algorithm. This pragmatic decision allowed for rapid development and effective tuning within our specific lab environment, achieving reliable line-following performance.
+
+2.  **Challenge: Mechanical Stability and Power Management**
+    * The initial two-wheeled design suffered from poor weight distribution, resulting in insufficient torque to move the robot consistently.
+    * **Solution:** We re-engineered the chassis to include a third wheel for improved balance and traction. This required recalibrating motor speeds and subsequently increasing the battery capacity to meet the higher power demand, which in turn required further adjustments to optimize the new weight distribution. This iterative process was key to achieving a mechanically sound and functional robot.
+
+### Comparison to Commercial Systems
+
+This project integrates features commonly found in separate commercial products into a single, specialized device.
+* It shares navigational principles with **autonomous vacuum robots** but is specialized to follow a predefined path rather than mapping open spaces.
+* It incorporates the hygienic benefits of **motion-activated trash cans** but enhances this with mobility and capacity-sensing.
+
+The unique value of this project lies in its synthesis of these functionalities for a targeted application like automated waste collection in offices or labs.
+
+### Future Enhancements
+
+With additional time and resources, the project could be improved with the following features:
+
+* **Advanced Control Algorithm:** Transition to a fully tuned PID or similar analog controller for smoother and more responsive navigation.
+* **Obstacle Detection & Avoidance:** Integrate additional sensors (e.g., LiDAR or IR) to detect and navigate around unexpected obstacles like people or objects.
+* **Form Factor & Power Optimization:** Redesign the chassis for superior weight distribution and implement power-saving modes to extend battery life.
+* **Automated "Return to Base" Functionality:** Program a routine for the robot to autonomously navigate to a designated "emptying station" once full.
+* **Enhanced Sensor Robustness:** Add a frontal LED array to provide consistent lighting for the line sensors, removing dependencies on ambient light and improving navigational reliability.
+
+### Technology Stack
+
+* **Core:** RTOS, C/C++
+* **Hardware:** Microcontroller, Ultrasonic Sensors, Analog Line Follower Sensors, Servo Motor, DC Motors, LCD Display
+* **Chassis:** 3D Printed / Custom Fabricated Components
