@@ -38,6 +38,8 @@ The system's stability and responsiveness are managed by a **Real-Time Operating
 
 To prevent race conditions and ensure safe operation, a **mutex** was implemented. For example, the mutex ensures that the robot's motors are safely halted before the lid-opening sequence is initiated, preventing conflicts between the navigation and user-interaction threads.
 
+{% include figure.html image="/assets/view.pdf" %}
+
 ```CPP
 /*
  * Copyright (c) 2020 Arm Limited and affiliates.
@@ -268,7 +270,7 @@ int main() {
         ThisThread::sleep_for(10ms); // Prevent main thread from terminating
     }
 }
-
+```
 
 ### Challenges & Solutions
 
