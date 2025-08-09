@@ -1,9 +1,8 @@
 ---
-title: Smart Autonomous Trash Can Robot
+title: Smart Trash Can Robot
 feature_image: "https://picsum.photos/2560/600?image=872"
 ---
 
-## Smart Autonomous Trash Can Robot
 
 An embedded systems project featuring autonomous line-following navigation, real-time trash level monitoring, and a touchless, automated lid.
 
