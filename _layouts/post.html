@@ -10,6 +10,14 @@ layout: default
 
     <h1>{{ page.title }}</h1>
     {% include post-meta.html %}
+    {% if page.feature_image %}
+  <figure class="feature-image">
+    <img src="{{ page.feature_image }}" alt="{{ page.title }}">
+    {% if page.feature_text %}
+      <figcaption>{{ page.feature_text }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
     {{ content }}
 
     {% include nav-share.html %}
