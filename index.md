@@ -1,8 +1,8 @@
 ---
-title: About Jungwoo Moon
+title: About Me
 feature_text: |
   ## Jungwoo Moon
-  Georgia Tech Computer Engineer & Embedded Software Developer
+  Computer Engineer & Embedded Software Developer
 feature_image: "/assets/GT.jpeg"
 excerpt: "Hi, I am an embedded/firmware engineer."
 ---
