@@ -12,7 +12,6 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 
 ## Projects
-{% include button.html text="LinkedIn" icon="linkedin" link="www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
 <ul>
   {% for post in site.posts %}
     <li>
@@ -33,6 +32,8 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 - **Developer Tools:** Git, Docker, GDB
 - **Concepts:** Device Drivers, System Architecture, Low-level Optimization
 - **Hardware Skills:** PCB Design (KiCad/Altium), Oscilloscope, Logic Analyzer
+
+{% include button.html text="LinkedIn" icon="linkedin" link="www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
 
 
 
