@@ -1,6 +1,6 @@
 ---
 title: Smart Trash Can Robot
-feature_image: "https://picsum.photos/2560/600?image=872"
+feature_image: "/assets/GT.jpeg"
 ---
 
 
