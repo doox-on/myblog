@@ -6,7 +6,7 @@ styles: true
 @import "alembic";
 
 /* 코드 블록 스타일링 */
-pre,
+div.highlight pre,
 code {
   font-family: "Courier New", Courier, monospace; /* 코드용 고정폭 글꼴 지정 */
 }
