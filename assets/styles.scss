@@ -18,4 +18,6 @@ pre {
   padding: 16px;              /* 칸 안쪽의 여백 */
   overflow: auto;             /* 가장 중요한 부분! 내용이 넘치면 스크롤바 자동 생성 */
   font-size: 0.9em;           /* 폰트 크기 살짝 작게 */
+  max-width: 100%; /* 코드 블록이 화면 밖으로 나가지 않도록 최대 너비 지정 */
+  box-sizing: border-box; /* 패딩과 테두리를 너비에 포함시켜서 계산 */
 }
