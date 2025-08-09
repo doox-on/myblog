@@ -10,11 +10,15 @@ excerpt: "Hi, I am an embedded/firmware engineer."
 As a Computer Engineer from the Georgia Institute of Technology, I have a deep passion for embedded systems that operate at the intersection of hardware and software. With a solid foundation in operating systems (OS), firmware, and real-time systems development, I aim to create efficient and reliable software.
 
 {% include button.html text="LinkedIn" icon="linkedin" link="www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
-
-{% include figure.html image="/assets/GT.jpeg" %}
-
-{% include figure.html image="/GT.jpeg" %}
-
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        {{ post.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 ## Projects
 
 - **프로젝트 1:** 자율주행 로봇을 위한 실시간 객체 탐지 시스템 개발
