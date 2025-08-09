@@ -11,7 +11,9 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 {% include button.html text="LinkedIn" icon="linkedin" link="www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
 
-{% include figure.html image="/assets/GT.jpeg" caption="Check out my photo" %}
+{% include figure.html image="/assets/GT.jpeg" %}
+
+{% include figure.html image="/GT.jpeg" %}
 
 ## Projects
 
