@@ -275,11 +275,11 @@ int main() {
 
 Throughout the development process, we addressed several key engineering challenges:
 
-**Challenge: Control Algorithm Selection**
+* **Challenge: Control Algorithm Selection**
     * We initially considered a fully analog PID controller for its potential robustness. However, its implementation complexity, tuning time, and high sensitivity to environmental factors (like the low contrast between the line and floor in our lab) made it impractical for our timeline.
     * **Solution:** We implemented a more discrete, simpler control algorithm. This pragmatic decision allowed for rapid development and effective tuning within our specific lab environment, achieving reliable line-following performance.
 
-**Challenge: Mechanical Stability and Power Management**
+* **Challenge: Mechanical Stability and Power Management**
     * The initial two-wheeled design suffered from poor weight distribution, resulting in insufficient torque to move the robot consistently.
     * **Solution:** We re-engineered the chassis to include a third wheel for improved balance and traction. This required recalibrating motor speeds and subsequently increasing the battery capacity to meet the higher power demand, which in turn required further adjustments to optimize the new weight distribution. This iterative process was key to achieving a mechanically sound and functional robot.
 
