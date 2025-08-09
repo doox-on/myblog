@@ -7,7 +7,7 @@ feature_image: "https://picsum.photos/2560/600?image=872"
 
 An embedded systems project featuring autonomous line-following navigation, real-time trash level monitoring, and a touchless, automated lid.
 
-{% include video.html id="zrkcGL5H3MU" %}
+{% include video.html id="uYw_aHjiI6A" %}
 
 ### Project Overview
 
