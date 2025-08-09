@@ -12,6 +12,7 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 
 ## Projects
+
 <ul style="font-size: 1.2em; line-height: 1.6; text-align: center;">
   {% for post in site.posts %}
     <li style="list-style: none; margin: 8px 0;">
