@@ -6,7 +6,7 @@ feature_text: |
 feature_image: "/assets/GT.jpeg"
 excerpt: "Hi, I am an embedded/firmware engineer."
 ---
-{% include figure.html image="/assets/JW.jpeg" caption="Me in Japan" %}
+{% include figure.html image="/assets/JW.jpeg" caption="Me in Japan" width="400" height="300" %}
 
 As a Computer Engineer from the Georgia Institute of Technology, I have a deep passion for embedded systems that operate at the intersection of hardware and software. With a solid foundation in operating systems (OS), firmware, and real-time systems development, I aim to create efficient and reliable software.
 
