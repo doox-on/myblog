@@ -12,10 +12,10 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 
 ## Projects
-<ul>
+<ul style="font-size: 1.2em; line-height: 1.6; text-align: center;">
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">
+    <li style="list-style: none; margin: 8px 0;">
+      <a href="{{ post.url | relative_url }}" style="font-size: 1.3em; text-decoration: none;">
         {{ post.title }}
       </a>
     </li>
