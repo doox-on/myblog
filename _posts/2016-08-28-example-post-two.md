@@ -5,7 +5,8 @@ categories:
 - External sources
 feature_text: |
   The History of the Alembic tool
-feature_image: "/assets/GT.jpeg"
+feature_image: "https://picsum.photos/2560/600?image=872"
+
 
 ---
 
