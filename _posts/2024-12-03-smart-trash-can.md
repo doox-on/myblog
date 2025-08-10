@@ -283,23 +283,7 @@ Throughout the development process, we addressed several key engineering challen
     * The initial two-wheeled design suffered from poor weight distribution, resulting in insufficient torque to move the robot consistently.
     * **Solution:** We re-engineered the chassis to include a third wheel for improved balance and traction. This required recalibrating motor speeds and subsequently increasing the battery capacity to meet the higher power demand, which in turn required further adjustments to optimize the new weight distribution. This iterative process was key to achieving a mechanically sound and functional robot.
 
-### Comparison to Commercial Systems
 
-This project integrates features commonly found in separate commercial products into a single, specialized device.
-* It shares navigational principles with **autonomous vacuum robots** but is specialized to follow a predefined path rather than mapping open spaces.
-* It incorporates the hygienic benefits of **motion-activated trash cans** but enhances this with mobility and capacity-sensing.
-
-The unique value of this project lies in its synthesis of these functionalities for a targeted application like automated waste collection in offices or labs.
-
-### Future Enhancements
-
-With additional time and resources, the project could be improved with the following features:
-
-* **Advanced Control Algorithm:** Transition to a fully tuned PID or similar analog controller for smoother and more responsive navigation.
-* **Obstacle Detection & Avoidance:** Integrate additional sensors (e.g., LiDAR or IR) to detect and navigate around unexpected obstacles like people or objects.
-* **Form Factor & Power Optimization:** Redesign the chassis for superior weight distribution and implement power-saving modes to extend battery life.
-* **Automated "Return to Base" Functionality:** Program a routine for the robot to autonomously navigate to a designated "emptying station" once full.
-* **Enhanced Sensor Robustness:** Add a frontal LED array to provide consistent lighting for the line sensors, removing dependencies on ambient light and improving navigational reliability.
 
 ### Technology Stack
 
