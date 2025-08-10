@@ -1,13 +1,19 @@
----
-title: Jungwoo Moon
+<img width="468" height="12" alt="image" src="https://github.com/user-attachments/assets/24d2b948-2204-4d21-95aa-ff399f2d1372" />---
+title:
 feature_text: |
 
 feature_image: "/assets/GT.jpeg"
 excerpt: "Hi, I am an embedded/firmware engineer."
 ---
+
+<div style="text-align: center;">
+## Jungwoo Moon
+</div>
+Buford, Georgia 30519|jmoon318@gatech.edu
+
 {% include figure.html image="/assets/JW.jpeg" width="400" height="300" %}
 
-As a Computer Engineer from the Georgia Institute of Technology, I have a deep passion for embedded systems that operate at the intersection of hardware and software. With a solid foundation in operating systems (OS), firmware, and real-time systems development, I aim to create efficient and reliable software.
+I am currently a senior at Georgia Tech and have been a teaching assistant for an embedded systems course for one year. I am interested in embedded development and aspire to become an on-device AI/ML developer.
 
 
 ## Projects
@@ -36,10 +42,10 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 - **Programming Languages:** C, C++, Python, Assembly
 - **Microcontrollers & Platforms:** STM32, ESP32, Arduino
-- **OS & Systems:** Real-Time Operating Systems (Free RTOS), Linux
+- **OS & Systems:** Real-Time Operating Systems (Free RTOS), Linux kernel
 - **Developer Tools:** Git, Docker, GDB
 - **Concepts:** Device Drivers, System Architecture, Low-level Optimization
-- **Hardware Skills:** PCB Design (KiCad/Altium), Oscilloscope, Logic Analyzer
+- **Languages:** English, Korean
 
 {% include button.html text="LinkedIn" icon="linkedin" link="https://www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
 
