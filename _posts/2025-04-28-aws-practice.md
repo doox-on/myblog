@@ -13,7 +13,7 @@ I deployed actual servers and integrated cloud storage, APIs, and remote connect
 Below is a detailed log of the tasks and technologies I worked with during the project.
 
 
-* Chapter 1.
+* **Chapter 1**
   
 This project involved implementing DELETE, tag-based search, and update functionalities for a photo application using AWS services like Lambda, API Gateway, and DynamoDB. Key challenges included resolving complex CORS errors and discovering that the API Gateway INTEGRATIONHTTPMETHOD must be POST when integrating with Lambda, regardless of the client-facing HTTPMETHOD. These learnings were crucial for successfully creating dedicated functions and APIs to handle specific database operations for each new feature.
 
@@ -137,8 +137,8 @@ photoID since it does not need a photoData. When upload is successful, automatic
 
 ---
 
-* Chapter 2.
-* User and Photo Management System with Secure Authentication and Cloud Storage Integration
+* **Chapter 2**
+User and Photo Management System with Secure Authentication and Cloud Storage Integration
   
 Developed a full-featured web application enabling secure user management, including email verification, hashed password storage, and session-based authentication. Implemented robust photo and album deletion functionalities integrated with AWS S3 for storage management. Added account deletion and session logout features to enhance user control and security. The system supports both SQL and NoSQL databases, ensuring flexible backend compatibility.
 
@@ -288,8 +288,8 @@ END
 
 ```
 
-* Chapter 3.
-* Microservices-Based User Profile and Chatroom File Management System with Authentication
+* **Chapter 3**
+Microservices-Based User Profile and Chatroom File Management System with Authentication
 Implemented a microservices architecture featuring user profile management with secure password hashing, user validation, and session logout functionality. Developed a file upload and attachment system for chatrooms using base64-encoded files saved to Docker volumes, with metadata stored in a MySQL database. Integrated services communicate via REST APIs, supporting seamless user authentication and real-time chat features including image sharing.
 
 ```
