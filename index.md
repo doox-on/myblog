@@ -33,8 +33,7 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 - **Concepts:** Device Drivers, System Architecture, Low-level Optimization
 - **Hardware Skills:** PCB Design (KiCad/Altium), Oscilloscope, Logic Analyzer
 
-{% include button.html text="LinkedIn" icon="linkedin" link="www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
-
+{% include button.html text="LinkedIn" icon="linkedin" link="https://www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
 
 
 ---
