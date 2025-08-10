@@ -1,5 +1,5 @@
 ---
-title: AWS Services
+title: Cloud Computing
 categories:
 feature_text: |
   
@@ -8,7 +8,14 @@ feature_image: "https://picsum.photos/2560/600?image=872"
 
 ---
 
-* Chapter 1. 
+This project involves working with cloud services such as AWS CloudFormation, EC2, Docker, and MySQL.
+I deployed actual servers and integrated cloud storage, APIs, and remote connections.
+Below is a detailed log of the tasks and technologies I worked with during the project.
+
+
+* Chapter 1.
+  
+This project involved implementing DELETE, tag-based search, and update functionalities for a photo application using AWS services like Lambda, API Gateway, and DynamoDB. Key challenges included resolving complex CORS errors and discovering that the API Gateway INTEGRATIONHTTPMETHOD must be POST when integrating with Lambda, regardless of the client-facing HTTPMETHOD. These learnings were crucial for successfully creating dedicated functions and APIs to handle specific database operations for each new feature.
 
 ```
 
@@ -130,7 +137,10 @@ photoID since it does not need a photoData. When upload is successful, automatic
 
 ---
 
-chapter 2
+* Chapter 2.
+* User and Photo Management System with Secure Authentication and Cloud Storage Integration
+  
+Developed a full-featured web application enabling secure user management, including email verification, hashed password storage, and session-based authentication. Implemented robust photo and album deletion functionalities integrated with AWS S3 for storage management. Added account deletion and session logout features to enhance user control and security. The system supports both SQL and NoSQL databases, ensuring flexible backend compatibility.
 
 ```
 
@@ -278,7 +288,120 @@ END
 
 ```
 
+* Chapter 3.
+* Microservices-Based User Profile and Chatroom File Management System with Authentication
+Implemented a microservices architecture featuring user profile management with secure password hashing, user validation, and session logout functionality. Developed a file upload and attachment system for chatrooms using base64-encoded files saved to Docker volumes, with metadata stored in a MySQL database. Integrated services communicate via REST APIs, supporting seamless user authentication and real-time chat features including image sharing.
+
+```
+//////////////////////////////////////
+1. Profile Service
+
+1.1. /new_profile
+/register function sends /new_profile a request with json file. The json file includes user name, password, and bio.
+Password is hashed with werkzeug. 
+If username or password is missing, return an error. 
+Make a connection to the mySQL table and insert the information.
+Maybe createdAt is not necessary, but I included it.
+cursor.lastrowid retrieves the lasts uid.
+Fianlly returns the profile_id to /register
+
++ 
+
+Init.sql has a new table User for profile_service.
+profile_id is the primary key and auto increase. 
+Password(based), bio, createdAt, updatedAt are located. (But createdAt and updatedAt are not really used) 
 
 
 
-Overall, it was a tough but valuable learning experience.
+1.2. /validate_user
+/login calls /validate_user to check if the user is validate(registered).
+/login receives json with username and password. 
+The default response message is none.
+If username or password is missing, send None with error code 400.
+Connect to mySQL database and fetch the target user information.
+If nothing is found, response None
+Check_password_hash compares the fetched password with the user typed password.
+If matched, put profile_id into response and return it.
+If not matched, send None.
+
+
+1.3. /get_username
+/lookup_useraname sends a request with profile_id to find username. 
+Connect to User table and fetch the target profile.
+If nothing is found, return error message.
+If found, return username. 
+
+
+
+2.Database management interface
+
+Implemented phpmyadmin as the PDF file guided in docker-compose.
+
+
+
+3.Logout button
+Base.html has the logout button and it uses go() to go login_service port. Since I am using 5007 as 
+login_service port, changed it from 5002 to 5007.
+/logout gets profile_id from the URL arguments. If user tries to log out in log out status, show "already logged out" message. 
+Send request to /delete_access_token with profile_id.
+/delete_access_token service is in auth_service, and does literally the reverse way of what /create_access_token does. 
+If authentication record doesn't exist, abort it with 404. If exists, delete that row in Auth table and return message and the profile_id.
+If successfully removed token, redirect to login page.
+
+
+
+4.Message attachments and media
+
+file_service is implemented in docker-compose.yaml. Docker volume is located /app/uploads and declare volume with mysql_data. 
+Dockerfile and requirements are basically the same as other services so I just copied with name modifications.
+File.py
+Upload_folder is the volume location. 
+
+4.1 /upload_file in chatroom.py 
+When user upload files, the files are encoded in the bas64 form with header.
+I thought the encoding was only for html and reading the files, so tried to send the whole file as a dataForm at the first time.
+But the fetch() in chatroom.html forces me to use only json format! So I copied the send message's fetch format.
+Base64 is text, so put it in the json body and send it to /uploadfile in chatroom_service. 
+/upload_file(line120 ~) in chatroom.py, do the authentication like /send_message. 
+Take the values from html and put them in another json request to add_photo in file.py to save the photos.
+
+4.2 /Add_photo 
+/Add_photo takes file(in 64encoded), room_id, and profile id. 
+The file has [data:image/jpeg;base64,ABCDEF] form, split it into header part and data part. 
+Codeline 38-40 extract file extension.
+To save the encoded file into volume as a file, decode it with b64decode().
+Then generate random file name with uuid4() in hexadecimal and append the file extension. (Line47)
+Merge volume path and file name to save the file into correct location. (Line48)
+Image_path is going to be saved in the ChatroomPhotos table as a metadata. This is where the file is located in the docker volume. 
+Open the file location, and write decoded file data into the memory location. (Line 50-54) 
+And update mySQL ChatroomPhotos table.
+Return file_id and image_url to /upload_file in chatroom.py
+
+Now /upload_file updates ChatroomMessages table. I added a new column called image_url. 
+This new row has empty message but image_url.
+Return Ok if is successful.
+
+4.3 chatroom.html
+- uploadFile(input) (line43-77) does the same thing as send message. But if user uploads several files together, it will iterate and send the images as separate messages. 
+
+- refresh() (line79-103) refresh and retrieve the messages in time order.
+Since the image_url is saved in the Chatroom table, if the image_url exist, get the url and put it in img src="". If not, put regular message.
+Then put the content in text!
+
+(I did not use ChatroomPhotos even though I created it this time, but making a separate table will help further implementation) 
+
+
+**Overall message upload process**
+
+Chatroom.html (User upload files) -> /upload_file in Chatroom.py (Send file to /add_photo) -> /add_photo in file.py (save file in
+file_service volume and metadata in ChatroomPhotos. Return saved file address (URL) -> /upload)file in Chatroom.py (update URL in ChatroomMessages)
+
+
+**
+
+
+
+///////////////////
+END 
+
+```
