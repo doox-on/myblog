@@ -22,9 +22,16 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
   {% endfor %}
 </ul>
 
-<div style="text-align: center;">
-  {% include button.html text="Food Management Android App" icon="external-link" link="https://jmoon318.github.io/CS2340Final/" color="#007acc" %}
-</div>
+<ul style="font-size: 1.2em; line-height: 1.6; text-align: center; padding-left: 0;">
+  {% for post in site.posts %}
+    <li style="list-style: none; margin: 8px 0;">
+      <a href="{{ post.url | relative_url }}" 
+         style="font-size: 1.3em; text-decoration: none; color: #007acc;">
+        {{ post.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
 
 ## Skills
 
