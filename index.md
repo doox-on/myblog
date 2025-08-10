@@ -6,11 +6,12 @@ feature_image: "/assets/GT.jpeg"
 excerpt: "Hi, I am an embedded/firmware engineer."
 ---
 
-<div style="text-align: center;">
-## Jungwoo Moon
+<div style="text-align: center; font-size: 1.5em; font-weight: bold; margin: 1em 0;">
+  Jungwoo Moon
 </div>
-Buford, Georgia 30519|jmoon318@gatech.edu
-
+<div style="text-align: center;">
+Buford, Georgia 30519 | jmoon318@gatech.edu
+</div>
 {% include figure.html image="/assets/JW.jpeg" width="400" height="300" %}
 
 I am currently a senior at Georgia Tech and have been a teaching assistant for an embedded systems course for one year. I am interested in embedded development and aspire to become an on-device AI/ML developer.
