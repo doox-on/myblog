@@ -24,7 +24,7 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 <p style="text-align: center;">
   <a href="https://jmoon318.github.io/CS2340Final/" 
-     style="color: #007acc; font-size: 1.3em; text-decoration: none;">
+     style="font-size: 1.3em; text-decoration: none;">
     Food Management Android App
   </a>
 </p>
