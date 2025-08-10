@@ -128,9 +128,9 @@ navigation_header:
 
 
 
-navigation_footer:
-- title: Created by David Darnes
-  url: https://darn.es
+# navigation_footer:
+# - title: Created by David Darnes
+#   url: https://darn.es
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
   Twitter: https://twitter.com/DavidDarnes
