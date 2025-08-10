@@ -535,9 +535,3 @@ int main() {
     * Initial implementation was significantly hampered because team members had different undeclared concepts for the final design. This discrepancy between visions caused rework and implementation difficulties, ultimately contributing to the decision to de-scope the water irrigation system.
     * **Solution:** Once we identified this conceptual gap, we immediately held detailed discussions to align on every aspect of the project. We made the pragmatic decision to cut features that could not be completed in time and focused entirely on the core functionalities. This experience was a critical lesson in the importance of ensuring all team members are on the same page through detailed, shared documentation from the project's outset.
 
-### Future Enhancements
-
-* **Hardware Optimization:** Consolidate the two STM32 microcontrollers into a single, more powerful MCU to reduce complexity and cost.
-* **Advanced Controls:** Implement a more precise control model with detailed states for different environmental conditions to improve responsiveness.
-* **Active Climate Systems:** Investigate the feasibility of adding low-power heating and cooling elements to provide a greater range of temperature control.
-* **Data Logging:** Program a long-term "test mode" to collect sensor and power usage data over several days to quantitatively verify system performance and reliability.
