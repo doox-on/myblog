@@ -30,7 +30,7 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 </ul>
 
 <ul style="font-size: 1.6rem; line-height: 1.6; text-align: center; margin: 0;">
-  <li style="list-style: none; margin: 8px 0;">
+  <li style="list-style: none; margin: 0px 0;">
     <a href="https://jmoon318.github.io/CS2340Final/" 
        style="font-size: 1.3rem; text-decoration: none;">
       Food Management Android App
