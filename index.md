@@ -1,4 +1,4 @@
-<img width="468" height="12" alt="image" src="https://github.com/user-attachments/assets/24d2b948-2204-4d21-95aa-ff399f2d1372" />---
+---
 title:
 feature_text: |
 
