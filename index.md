@@ -12,22 +12,25 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
 
 ## Projects
 
-<ul style="font-size: 1.2em; line-height: 1.6; text-align: center;">
+<ul style="font-size: 1.2rem; line-height: 1.6; text-align: center;">
   {% for post in site.posts %}
     <li style="list-style: none; margin: 8px 0;">
-      <a href="{{ post.url | relative_url }}" style="font-size: 1.3em; text-decoration: none;">
+      <a href="{{ post.url | relative_url }}" 
+         style="font-size: 1.3rem; text-decoration: none;">
         {{ post.title }}
       </a>
     </li>
   {% endfor %}
 </ul>
 
-<p style="text-align: center;">
-  <a href="https://jmoon318.github.io/CS2340Final/" 
-     style="font-size: 1.3em; text-decoration: none;">
-    Food Management Android App
-  </a>
-</p>
+<ul style="font-size: 1.2rem; line-height: 1.6; text-align: center;">
+  <li style="list-style: none; margin: 8px 0;">
+    <a href="https://jmoon318.github.io/CS2340Final/" 
+       style="font-size: 1.3rem; text-decoration: none;">
+      Food Management Android App
+    </a>
+  </li>
+</ul>
 
 ## Skills
 
