@@ -5,13 +5,11 @@ categories:
 excerpt: |
   A pot still is a type of still used in distilling spirits such as whisky or brandy. Heat is applied directly to the pot containing the wash (for whisky) or wine (for brandy).
 feature_text: |
-  ## The Pot Still
-  The modern pot still is a descendant of the alembic, an earlier distillation device
+  ## Solar-Powered Greenhouse
+
 feature_image: "https://picsum.photos/2560/600?image=872"
 
 ---
-
-## Self-Sustaining Solar-Powered Miniature Greenhouse
 
 An automated, self-sufficient greenhouse designed for urban agriculture, featuring a sun-tracking solar panel and integrated environmental controls.
 
