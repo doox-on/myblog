@@ -22,7 +22,9 @@ As a Computer Engineer from the Georgia Institute of Technology, I have a deep p
   {% endfor %}
 </ul>
 
-{% include button.html text="View Project" icon="external-link" link="https://jmoon318.github.io/CS2340Final/" color="#007acc" %}
+<div style="text-align: center;">
+  {% include button.html text="Food Management Android App" icon="external-link" link="https://jmoon318.github.io/CS2340Final/" color="#007acc" %}
+</div>
 
 ## Skills
 
