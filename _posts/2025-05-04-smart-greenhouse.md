@@ -41,7 +41,9 @@ I was responsible for the design and implementation of the greenhouse’s contro
 
 
 * MCU 1 : Handling LCD monitor and Data Calculation
-```
+
+
+cpp```
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 #include <SPI.h>
@@ -220,7 +222,10 @@ if (hum >= 70) {
 
 
 * MCU 2: Handling sensors and motors. Send data to the MCU 1.
-```
+
+
+
+cpp```
 /* mbed Microcontroller Library
  * Copyright (c) 2019 ARM Limited
  * SPDX-License-Identifier: Apache-2.0
