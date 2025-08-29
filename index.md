@@ -60,7 +60,7 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 </style>
 
 <div class="row-figs">
-  {% include figure.html image="{{ '/assets/1.JPG' | relative_url }}" width="400" height="300" caption="사진 1 설명" %}
-  {% include figure.html image="{{ '/assets/2.JPG' | relative_url }}" width="400" height="300" caption="사진 2 설명" %}
+  {% include figure.html image="/assets/1.JPG" width="400" height="300" caption="사진 1 설명" %}
+  {% include figure.html image="/assets/2.JPG" width="400" height="300" caption="사진 2 설명" %}
 </div>
 ---
