@@ -51,4 +51,17 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 {% include button.html text="LinkedIn" icon="linkedin" link="https://www.linkedin.com/in/jungwoo-moon-135743263" color="#0A66C2" %}
 
 
+## About Me
+
+<div style="display:flex; gap:20px;">
+  <figure>
+    <img src="/assets/1.jpg" width="400" height="300">
+    <figcaption style="text-align:center;">complete military service</figcaption>
+  </figure>
+  <figure>
+    <img src="/assets/2.jpg" width="400" height="300">
+    <figcaption style="text-align:center;">Vietnam travel</figcaption>
+  </figure>
+</div>
+
 ---
