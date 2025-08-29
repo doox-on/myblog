@@ -75,10 +75,36 @@ I was born in Korea, always searching for what I truly wanted to do. After compl
 After discharge, I traveled, worked, and eventually moved to the U.S. because of my parents’ job. At first it was scary, but I hoped a new world would help me discover my path.
 
 <div class="row-figs">
-  {% include figure.html image="/assets/5.jpg" width="350" height="300" caption="Farewell!" %}
-  {% include figure.html image="/assets/6.jpg" width="350" height="300" caption="At the Incheon airport" %}
+  {% include figure.html image="/assets/5.jpg" width="350" height="300" caption="GTLI friends" %}
+  {% include figure.html image="/assets/6.jpg" width="350" height="300" caption="My first home party in the U.S." %}
 </div>
 
 My first stop was Georgia Tech Language Institute. I couldn’t speak any English at the time, but I avoided using Korean and made friends from other countries. That mindset helped me adapt quickly.
+
+<div class="row-figs">
+  {% include figure.html image="/assets/7.jpg" width="350" height="300" caption="Pizza place near campus" %}
+  {% include figure.html image="/assets/16.jpeg" width="350" height="300" caption="Tech green" %}
+</div>
+
+<div class="row-figs">
+  {% include figure.html image="/assets/9.jpeg" width="350" height="300" caption="Disney's Hollywood studios" %}
+  {% include figure.html image="/assets/10.jpeg" width="350" height="300" caption="K-pop concert with my sister" %}
+</div>
+
+Later, I studied hard to get into Georgia Tech and was so happy when I was accepted. I met many friends, enjoyed both school and travel—Disney World, K-pop concerts, and more.
+
+<div class="row-figs">
+  {% include figure.html image="/assets/11.jpeg" width="350" height="300" caption="In Tokyo with my friends" %}
+  {% include figure.html image="/assets/12.jpeg" width="350" height="300" caption="Akihabara Genshin shop" %}
+</div>
+
+I also revisited Asia to see old friends and explore new countries. Some even came to Japan just to see me, which meant a lot.
+
+<div class="row-figs">
+  {% include figure.html image="/assets/13.jpeg" width="350" height="300" caption="In Thailand" %}
+  {% include figure.html image="/assets/14.jpeg" width="350" height="300" caption="Met new friends" %}
+</div>
+
+Learning English really opened my world. In Thailand, the Philippines, and Japan, I could easily connect with people and felt confident that I could do anything.
 
 ---
