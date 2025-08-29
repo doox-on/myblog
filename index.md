@@ -54,22 +54,13 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 ## About Me
 
 <style>
+  /* 한 번만 넣으면 됨 */
   .row-figs{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-  .row-figs figure{margin:0;text-align:center;flex:0 1 auto}
-  .row-figs img{max-width:100%;height:auto;display:block}
-  .row-figs figcaption{font-size:14px;color:#777;margin-top:6px}
+  .row-figs > *{flex:0 1 auto;margin:0;text-align:center}
 </style>
 
-
 <div class="row-figs">
-  <figure>
-    <img src="{{ '/assets/1.jpg' | relative_url }}" alt="사진 1" width="400" height="300">
-    <figcaption>사진 1: 서울 여행</figcaption>
-  </figure>
-  <figure>
-    <img src="{{ '/assets/2.jpg' | relative_url }}" alt="사진 2" width="400" height="300">
-    <figcaption>사진 2: 뉴욕 여행</figcaption>
-  </figure>
+  {% include figure.html image="{{ '/assets/JW.jpeg' | relative_url }}" width="400" height="300" caption="사진 1 설명" %}
+  {% include figure.html image="{{ '/assets/JW2.jpeg' | relative_url }}" width="400" height="300" caption="사진 2 설명" %}
 </div>
-
 ---
