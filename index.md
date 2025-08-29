@@ -53,14 +53,22 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 
 ## About Me
 
-<div style="display:flex; gap:20px;">
+<style>
+  .row-figs{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .row-figs figure{margin:0;text-align:center;flex:0 1 auto}
+  .row-figs img{max-width:100%;height:auto;display:block}
+  .row-figs figcaption{font-size:14px;color:#777;margin-top:6px}
+</style>
+
+
+<div class="row-figs">
   <figure>
-    <img src="/assets/1.JPG" width="400" height="300">
-    <figcaption style="text-align:center;">complete military service</figcaption>
+    <img src="{{ '/assets/1.jpg' | relative_url }}" alt="사진 1" width="400" height="300">
+    <figcaption>사진 1: 서울 여행</figcaption>
   </figure>
   <figure>
-    <img src="/assets/2.JPG" width="400" height="300">
-    <figcaption style="text-align:center;">Vietnam travel</figcaption>
+    <img src="{{ '/assets/2.jpg' | relative_url }}" alt="사진 2" width="400" height="300">
+    <figcaption>사진 2: 뉴욕 여행</figcaption>
   </figure>
 </div>
 
