@@ -60,14 +60,25 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 </style>
 
 <div class="row-figs">
-  {% include figure.html image="/assets/1.JPG" width="300" height="300" caption="사진 1 설명" %}
-  {% include figure.html image="/assets/2.JPG" width="300" height="300" caption="사진 2 설명" %}
+  {% include figure.html image="/assets/1.JPG" width="300" height="300" caption="Complete military service" %}
+  {% include figure.html image="/assets/2.JPG" width="300" height="300" caption="In Vietnam with my friends" %}
 </div>
 
 
 I was born in Korea, always searching for what I truly wanted to do. After completing my mandatory military service, I learned how to live and work with others, resolve conflicts, and take responsibility as part of a team.
 
+<div class="row-figs">
+  {% include figure.html image="/assets/3.JPG" width="300" height="300" caption="Farewell!" %}
+  {% include figure.html image="/assets/4.JPG" width="300" height="300" caption="At the Incheon airport" %}
+</div>
 
+After discharge, I traveled, worked, and eventually moved to the U.S. because of my parents’ job. At first it was scary, but I hoped a new world would help me discover my path.
 
+<div class="row-figs">
+  {% include figure.html image="/assets/5.jpg" width="300" height="300" caption="Farewell!" %}
+  {% include figure.html image="/assets/6.jpg" width="300" height="300" caption="At the Incheon airport" %}
+</div>
+
+My first stop was Georgia Tech Language Institute. I couldn’t speak any English at the time, but I avoided using Korean and made friends from other countries. That mindset helped me adapt quickly.
 
 ---
