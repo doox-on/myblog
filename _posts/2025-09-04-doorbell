@@ -1,0 +1,64 @@
+---
+title: Linux Doorbell on Raspberry Pi
+feature_image: "https://picsum.photos/2560/600?image=872"
+
+---
+
+
+After my previous TinyML project, I thought it would be fun to build a doorbell that could trigger a real-time person detection program. Of course, there are already similar products out there, but I figured trying it myself would be a valuable learning experience.
+So I built a **doorbell MVP** on my Raspberry Pi: press a button → kernel IRQ → user program gets notified → a WAV file plays through an I²S amplifier and speaker.  
+
+It’s not a finished product, but it’s a complete pipeline from hardware interrupt all the way to user-level action. And hearing the Pi actually play a doorbell sound when I click a button was surprisingly satisfying.  
+
+
+{% include video.html id="-7GG5GhPlCk" %}
+
+<ul style="font-size: 1.6rem; line-height: 1.6; text-align: center; margin: 0;">
+  <li style="list-style: none; margin: 0px 0;">
+    <a href="https://github.com/doox-on/tinyML" 
+       style="font-size: 1.3rem; text-decoration: none;">
+      TinyML Repo
+    </a>
+  </li>
+</ul>
+
+### Overview
+
+The idea is straightforward:  
+
+1. **GPIO button** is wired to an interrupt line.  
+2. A **kernel module (misc device)** registers an IRQ handler.  
+3. When the button is pressed, the handler wakes a **waitqueue**.  
+4. A **userspace Python watcher** blocks on `/dev/doorBell` and, when triggered, runs `aplay` to play a WAV file.  
+5. The audio goes out over **I²S → MAX98357A amp → speaker**.
+
+--- 
+### Hardware Setup
+
+- Raspberry Pi 4  
+- Push button on GPIO20  
+- I²S amplifier: MAX98357A (DIN=GPIO21, LRCLK=GPIO19, BCLK=GPIO18)  
+- Small speaker  
+
+{% include figure.html path="assets/img/doorbell/hw-setup.jpg" title="Breadboard wiring" %}
+
+---
+### Kernel Module
+
+I used a **misc device** so I didn’t have to worry about major numbers. The driver requests the button GPIO, sets up an IRQ handler, and exposes `/dev/doorBell` with `.read` and `.poll`.  
+---
+### Userspace Watcher
+
+This project started as a simple IRQ test, but it turned into a great learning experience. Sure, using the Linux kernel just to make a doorbell ring might feel like overkill, but it helped me understand how interrupts, waitqueues, device files, and audio playback all connect.
+More importantly, I can see how to take this further — integrating with machine learning for smart detection, or extending it to communicate with other MCUs over BLE or Wi-Fi. That’s where I want to push this next.
+
+### Closing thought
+
+This project started as a simple IRQ test, but chaining together GPIO interrupts, kernel waitqueues, device files, and ALSA playback gave me a taste of how the whole Linux stack fits together.
+
+### Technology Stack
+
+* **Linux Kernel / Driver Development** – custom misc device driver (GPIO IRQ, waitqueue, poll/read) written in C on Raspberry Pi
+* **Userspace Programming** – Python watcher script to read /dev/doorBell and trigger audio playback via ALSA (aplay)
+* **Scripting & Automation** – Bash scripts for building, inserting/removing modules, and launching the user program
+* **Hardware Integration** – Soldered and wired MAX98357A I²S amp board, connected push button to GPIO, and debugged hardware-level issues (wiring, audio output, debouncing)
