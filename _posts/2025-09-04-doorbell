@@ -11,7 +11,7 @@ So I built a **doorbell MVP** on my Raspberry Pi: press a button → kernel IRQ 
 It’s not a finished product, but it’s a complete pipeline from hardware interrupt all the way to user-level action. And hearing the Pi actually play a doorbell sound when I click a button was surprisingly satisfying.  
 
 
-{% include video.html id="-7GG5GhPlCk" %}
+{% include video.html id="OaeTx9NIo0I" %}
 
 <ul style="font-size: 1.6rem; line-height: 1.6; text-align: center; margin: 0;">
   <li style="list-style: none; margin: 0px 0;">
@@ -40,7 +40,7 @@ The idea is straightforward:
 - I²S amplifier: MAX98357A (DIN=GPIO21, LRCLK=GPIO19, BCLK=GPIO18)  
 - Small speaker  
 
-{% include figure.html path="assets/img/doorbell/hw-setup.jpg" title="Breadboard wiring" %}
+{% include figure.html path="assets/doorbell1.jpeg" title="Doorbell Prototype" %}
 
 ---
 ### Kernel Module
