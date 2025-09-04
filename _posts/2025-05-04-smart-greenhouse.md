@@ -18,11 +18,15 @@ An automated, self-sufficient greenhouse designed for urban agriculture, featuri
 
 {% include video.html id="1XSyMbiWBRU" %}
 
+---
+
 ### Project Overview
 
 The SMART Greenhouse is a compact, automated system designed to make gardening accessible to urban dwellers and plant enthusiasts with limited space. It addresses the challenges of manual greenhouse management by automating key processes like temperature and humidity regulation, all while operating entirely on self-generated solar power. The core novelty lies in its self-sufficiency, combining automated controls with an energy-efficient power system featuring a solar panel mounted on a rotating gimbal to maximize sun exposure throughout the day.
 
 {% include figure.html image="/assets/greenhouse2.jpeg" %}
+
+---
 
 ### Key Features
 
@@ -524,6 +528,7 @@ int main() {
 }
 
 ```
+---
 
 ### Challenges & Solutions
 
