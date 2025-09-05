@@ -1,5 +1,5 @@
 ---
-title: Smart Trash Can Robot
+title: Smart Trash Can Robot (RTOS)
 feature_image: "https://picsum.photos/2560/600?image=872"
 
 ---
@@ -9,10 +9,13 @@ An embedded systems project featuring autonomous line-following navigation, real
 
 {% include video.html id="uYw_aHjiI6A" %}
 
+---
+
 ### Project Overview
 
 This project is a smart, autonomous trash can robot designed to navigate predefined paths in an indoor environment. It automates trash collection by following a designated line, monitoring its internal capacity in real-time, and providing a hygienic, touchless lid mechanism. The entire system is managed by a Real-Time Operating System (RTOS) to ensure smooth and concurrent operation of all subsystems.
 
+---
 ### Key Features
 
 * **Autonomous Line-Following Navigation**
@@ -28,6 +31,8 @@ This project is a smart, autonomous trash can robot designed to navigate predefi
     * A servo motor is triggered upon motion detection to automatically open and close the lid, offering a convenient and hygienic hands-free experience.
 
 {% include video.html id="YXhIxpggNYQ" %}
+
+---
 
 ### System Architecture & Concurrency
 
@@ -271,6 +276,7 @@ int main() {
 }
 ```
 
+---
 ### Challenges & Solutions
 
 Throughout the development process, we addressed several key engineering challenges:
@@ -282,8 +288,7 @@ Throughout the development process, we addressed several key engineering challen
 * **Challenge: Mechanical Stability and Power Management**
     * The initial two-wheeled design suffered from poor weight distribution, resulting in insufficient torque to move the robot consistently.
     * **Solution:** We re-engineered the chassis to include a third wheel for improved balance and traction. This required recalibrating motor speeds and subsequently increasing the battery capacity to meet the higher power demand, which in turn required further adjustments to optimize the new weight distribution. This iterative process was key to achieving a mechanically sound and functional robot.
-
-
+---
 
 ### Technology Stack
 
