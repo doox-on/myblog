@@ -1,5 +1,5 @@
 ---
-title: Self-Sustaining Solar-Powered Greenhouse
+title: Solar-Powered Greenhouse (RTOS)
 categories:
 - General
 excerpt: |
