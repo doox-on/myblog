@@ -40,7 +40,7 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
 </ul>
 
 
-## Experiments
+## Mini Projects
 <ul style="font-size: 1.6rem; line-height: 1.6; text-align: center; margin: 0;">
   {% assign sorted_experiments = site.experiments | sort: 'date' | reverse %}
   {% for post in sorted_experiments %}
