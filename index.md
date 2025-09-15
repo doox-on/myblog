@@ -39,6 +39,21 @@ I am currently a senior at Georgia Tech and have been a teaching assistant for a
   </li>
 </ul>
 
+
+## Mini Projects
+## Experiments
+<ul style="font-size: 1.6rem; line-height: 1.6; text-align: center; margin: 0;">
+  {% assign sorted_experiments = site.experiments | sort: 'date' | reverse %}
+  {% for post in sorted_experiments %}
+    <li style="list-style: none; margin: 8px 0;">
+      <a href="{{ post.url | relative_url }}" 
+         style="font-size: 1.3rem; text-decoration: none;">
+        {{ post.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
 ## Skills
 
 - **Programming Languages:** C, C++, Python, Assembly
