@@ -288,6 +288,7 @@ Throughout the development process, we addressed several key engineering challen
 * **Challenge: Mechanical Stability and Power Management**
     * The initial two-wheeled design suffered from poor weight distribution, resulting in insufficient torque to move the robot consistently.
     * **Solution:** We re-engineered the chassis to include a third wheel for improved balance and traction. This required recalibrating motor speeds and subsequently increasing the battery capacity to meet the higher power demand, which in turn required further adjustments to optimize the new weight distribution. This iterative process was key to achieving a mechanically sound and functional robot.
+
 ---
 
 ### Technology Stack
