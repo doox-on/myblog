@@ -1,0 +1,99 @@
+---
+title: 3. (LLM) NL-JSON-SQL triplet
+feature_image: "https://picsum.photos/2560/600?image=1024"
+---
+
+This week’s focus was on **building the complete NL–JSON–SQL pipeline**, transforming individual experimental scripts into a coherent, reproducible workflow.
+
+After finalizing the **SQL → JSON plan generator**, the next milestones were to:
+1. Automatically generate SQL queries from real CSV data,  
+2. Use the Groq API to produce their corresponding **natural language (NL)** and **execution plan (JSON)**, and  
+3. Merge all valid outputs into a **structured training dataset** for future NL2SQL fine-tuning.
+
+
+{% include figure.html image="assets/norp2-1.png" caption="Example:SQL -> JSON test" %}
+
+<ul style="font-size: 1.6rem; line-height: 1.6; text-align: center; margin: 0;">
+  <li style="list-style: none; margin: 0px 0;">
+    <a href="https://gist.github.com/doox-on/2d13b19b8cf428adbaf43d28929b681d" 
+       style="font-size: 1.3rem; text-decoration: none;">
+      Private Github Repo
+    </a>
+  </li>
+</ul>
+
+---
+
+### Transition to SQL -> JSON Plans
+
+Originally, the plan was to extract query plans from DuckDB via EXPLAIN (FORMAT JSON),
+but it did not support that feature yet.
+I replaced it with an **LLM based JSON planner** using Groq’s API. 
+
+This new pipeline takes in an SQL query and produces a **structured JSON plan** that outlines:
+- The sequence of operations (Projection, Filter, Sort, Join, etc.)
+- Their conditions or parameters
+- The hierarchical structure of the query
+
+
+---
+
+### 1. Automated SQL Query Generation
+
+I implemented a dynamic SQL generator (`random_query.py`) that scans any CSV file, infers column types (string, int, float), and generates 500 random SQL queries based on adaptive templates.
+
+
+{% include figure.html image="assets/norp3-1.png" caption="Automated SQL generation with type inference" %}
+
+
+This enables dataset-independent query generation — no manual schema definition required.
+
+
+---
+
+### 2. SQL → JSON Plan Conversion
+
+The SQL-to-JSON step was stabilized using Groq’s `llama-3.1-8b-instant` model.  
+Each SQL query is parsed into a **hierarchical execution plan** with explicit nodes like:
+- `TableScan`, `Filter`, `Aggregation`, `Projection`, and `GroupBy`.
+
+{% include figure.html image="assets/norp3-2.png" caption="SQL to JSON execution plan" %}
+
+{% include figure.html image="assets/norp3-2-1.png" caption="500 data set" %}
+
+Invalid or malformed JSON responses are filtered automatically, ensuring only clean data propagates to the final dataset.
+
+
+---
+
+### 💬 3. SQL → NL Question Generation
+
+A parallel module (`SQL-to-NL.py`) was added to translate SQL queries into plain English questions.  
+This process leverages schema-aware prompts (column descriptions embedded in context) to produce accurate, human-like phrasing.
+
+{% include figure.html image="assets/norp3-3.png" caption="SQL to Natural Language generation" %}
+
+
+By grounding the LLM with column descriptions, the output is both semantically correct and interpretable.
+
+
+---
+
+### 🔗 4. Triplet Integration
+
+After both NL and JSON files were generated, I built a **triplet merger** (`make_triplets.py`) to align (NL, SQL, JSON) into a unified `.jsonl` dataset.  
+This script automatically validates JSON structure and skips corrupted entries.
+
+{% include figure.html image="assets/norp3-4.png" caption="Merged NL–JSON–SQL Triplet Dataset" %}
+
+---
+
+
+
+### Next Steps (Week 5~6)
+
+- Automatically generate (NL, SQL, JSON) triples using the working SQL -> JSON converter.
+- Create ~500 high quality examples to train the NL -> JSON model.
+- Fine-tune a lightweight Groq/Llama model to generate JSON plans directly from natural language queries.
+- Compare outputs with ground-truth plans to measure semantic alignment (Plan Accuracy).
+  
